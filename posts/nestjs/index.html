@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Matt Richards" />
+    <meta name="description" content="Website Description TODO">
+    <link rel="shortcut icon" type="image/x-icon" href="https://cepster.github.io/img/favicon.ico">
+    <title>NestJS - Holy Crap This Is Cool</title>
+    <meta name="generator" content="Hugo 0.55.5" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cepster.github.io/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,200bold,400old" />
+    
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://cepster.github.io/"><i class="fa fa-home"></i></a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="/posts/">BLOG</a></li>
+        
+        <li><a href="/talks/">TECH TALKS</a></li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="https://cepster.github.io/posts/nestjs/">NestJS - Holy Crap This Is Cool</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          January 21, 2020
+            &nbsp;&nbsp;
+            
+          </h4>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              
+
+<p>Despite the internet&rsquo;s best memelords attempts to convince me otherwise, I absolutely love JavaScript and TypeScript. It&rsquo;s not necessarily the languages themselves that I like, but there&rsquo;s something about how the ecosystem has constructed itself and the design patterns that have emerged that totally jive with me. To that end, whenever I start up a greenfield project that requires an API, I immediately look towards Node/Express rather than doing something more Enterprise-y like a Spring app. I was recently exposed to NestJS as a way to build scalable progressive server-side applications and my mind is TOTALLY blown.</p>
+
+<p>I work in a company who works on a Java web application with an Angular front-end. When my coworkers ask me what NestJS is, the best thing that I can tell them is that Jersey and Angular had a baby, and that baby is one cool customer.</p>
+
+<h1 id="jersey-and-angular-what-on-earth-are-you-talking-about">Jersey and Angular? What on earth are you talking about?</h1>
+
+<h3 id="angular">Angular</h3>
+
+<p>NestJS comes bundled with its own CLI, making it easy to build a server-side app with a standard structure. The first thing you notice is that the CLI syntax is remarkably similar to the Angular CLI. You can create a new app
+<code>
+new new my-app
+</code></p>
+
+<p>This will build up a shell application with a default app module, an app controller, a default service, and auto-wired automated testing all throughout.</p>
+
+<p>You can create a new controller</p>
+
+<p><code>
+    nest generate controller my-controller
+</code></p>
+
+<p>This will create a new controller and auto-register it with the default app module</p>
+
+<p>You can generate a service</p>
+
+<p><code>
+nest generate service my-service
+</code></p>
+
+<p>This will create a new service and auto-register it with the default app module.</p>
+
+<p>Getting the picture? If you&rsquo;re an Angular user, this will feel very similar. Once you&rsquo;re done building your app, it will <em>feel</em> very similar to an Angular application. Of course, it is in actuality entirely different because this is a server-side application rather than a browser-based app.</p>
+
+<p>The CLI is just the beginning. It gets really striking when you look at the how the apps are constructed. It is obvious that NestJS was inspired by the structure of Angular. It has:</p>
+
+<ul>
+<li>Dependency Injection</li>
+<li>Module Isolation</li>
+<li>Pre-wired automated tested (Jest by default)</li>
+<li>On-the-fly module bundling and dev builds</li>
+<li>Much More</li>
+</ul>
+
+<h3 id="jersey">Jersey</h3>
+
+<p><em>OK, cool - the file structure is like Angular. What are you talking about with Jersey?</em></p>
+
+<p>For those of you that have built NodeJS APIs, you&rsquo;re probably used to ExpressJS and the callback-based structure of declaring routes:</p>
+
+<pre>
+<code>
+    router.get("/foo", (req, res) => {
+        res.send("bar!");
+    })
+</code>
+</pre>
+
+<p>This works just fine, but it can get unwieldy. It gets especially tricky when you start introducing middleware like authentication. It gets even worse when you try to deal with the asynchronous world of JavaScript and you either end up in Promise Hell or CallBack Hell. Finally, this code is much harder to reason and it is in no way self-documenting. This is where NestJS took a lesson and adopted some of the techniques that developers who are comfortable with Jersey might enjoy.</p>
+
+<p>API endpoints are declared and registered via decorators. So the above example would instead look like:</p>
+
+<pre>
+<code>
+    @Get("foo")
+    async getFoo(): Promise<string> {
+        return "bar";
+    }
+</code>
+</pre>
+
+<p>You can also use decorators to do things like API documentation, registration of middleware like authentication, and overrides of HTTP status codes</p>
+
+<pre>
+<code>
+    @Get("foo")
+    @ApiOperation({
+      summary: "Gets foo",
+      description: "This endpoint will retrieve foo",
+    })
+    @ApiResponse({ status: 200, description: "Record found." })
+    @ApiResponse({ status: 403, description: "Forbidden." })
+    @UseGuards(AuthGuard())
+    async getFoo(): Promise<string> {
+        return "bar";
+    }
+</code>
+</pre>
+
+<h2 id="other-cool-stuff">Other Cool Stuff</h2>
+
+<p>This blog post could go on forever if I let it, but the amount of stuff that NestJS has right out of the box in incredible. It includes, but is not limited to:</p>
+
+<ul>
+<li>Authentication</li>
+<li>SQL Database Support</li>
+<li>NoSQL Database Support</li>
+<li>OpenAPI (Swagger)</li>
+<li>Health Checks</li>
+<li>Hot Reload</li>
+<li>and so so much more</li>
+</ul>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>If you&rsquo;re looking to build a greenfield app with production-quality code, I urge you to give NestJS a try. Check them out <a href="https://docs.nestjs.com/">here</a>.</p>
+
+              <hr>
+              <div class="related-posts">
+                <h5>Related Posts</h5>
+                
+              </div>
+            </div>
+          </div>
+          <hr>
+        <div class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+
+    (function() {
+      
+      
+      if (window.location.hostname == "localhost")
+        return;
+
+      var disqus_shortname = '';
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+        </div>
+      </div>
+      
+    </div>
+
+    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a> and
+      <a href="http://www.github.com/nurlansu/hugo-sustain/">sustain</a> with ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cepster.github.io/js/docs.min.js"></script>
+<script src="https://cepster.github.io/js/main.js"></script>
+
+<script src="https://cepster.github.io/js/ie10-viewport-bug-workaround.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Matt Richards</title>
+    <link>https://cepster.github.io/posts/</link>
+    <description>Recent content in Posts on Matt Richards</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 21 Jan 2020 19:00:00 -0600</lastBuildDate>
+    
+	<atom:link href="https://cepster.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>NestJS - Holy Crap This Is Cool</title>
+      <link>https://cepster.github.io/posts/nestjs/</link>
+      <pubDate>Tue, 21 Jan 2020 19:00:00 -0600</pubDate>
+      
+      <guid>https://cepster.github.io/posts/nestjs/</guid>
+      <description>Despite the internet&amp;rsquo;s best memelords attempts to convince me otherwise, I absolutely love JavaScript and TypeScript. It&amp;rsquo;s not necessarily the languages themselves that I like, but there&amp;rsquo;s something about how the ecosystem has constructed itself and the design patterns that have emerged that totally jive with me. To that end, whenever I start up a greenfield project that requires an API, I immediately look towards Node/Express rather than doing something more Enterprise-y like a Spring app.</description>
+    </item>
+    
+    <item>
+      <title>My First Post</title>
+      <link>https://cepster.github.io/posts/my-first-post/</link>
+      <pubDate>Thu, 05 Dec 2019 06:42:54 -0600</pubDate>
+      
+      <guid>https://cepster.github.io/posts/my-first-post/</guid>
+      <description>Hey y&amp;rsquo;all. This is my first attempt at keeping up a blog. I hope to put some cool stuff in here. Keep in touch!</description>
+    </item>
+    
+  </channel>
+</rss>

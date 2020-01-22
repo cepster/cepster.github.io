@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Talks on Matt Richards</title>
+    <link>https://cepster.github.io/talks/</link>
+    <description>Recent content in Talks on Matt Richards</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 21 Jan 2020 06:42:54 -0600</lastBuildDate>
+    
+	<atom:link href="https://cepster.github.io/talks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Nest JS - How to Make MEAN Play Nice</title>
+      <link>https://cepster.github.io/talks/make_mean_play_nice/</link>
+      <pubDate>Tue, 21 Jan 2020 06:42:54 -0600</pubDate>
+      
+      <guid>https://cepster.github.io/talks/make_mean_play_nice/</guid>
+      <description>NestJS is a progressive NodeJS framework that makes it dirt simple to build clean server-side applications. It takes the simple API-building concepts from ExpressJS and adds a structure around it which includes:
+ Annotation-based resource definitions Dependency Injection Module resolution Helpful CLI And Much More!  In this talk I will demonstrate a live code walkthrough of building a full MEAN application (Mongo-Express-Node-Angular) from scratch using NestJS.</description>
+    </item>
+    
+    <item>
+      <title>Kubernetes for the Legacy Warrior</title>
+      <link>https://cepster.github.io/talks/k8s_for_legacy_warrior/</link>
+      <pubDate>Thu, 05 Dec 2019 06:42:54 -0600</pubDate>
+      
+      <guid>https://cepster.github.io/talks/k8s_for_legacy_warrior/</guid>
+      <description>MANAGERS: “Put everything in Kubernetes!”
+ARCHITECTS: “That’s simple, just use microservices”
+DEV-OPS ENGINEERS: “Have you tried a Kubernetes-based polyglot micro services application with Istio service mesh?”
+YOU: “Yeah, that’s great. But I have a real job making my company money with a legacy application. I can’t just take two years to re-architect the world. Plus, I’m fairly certain 90% of what you just said is utter nonsense. So why should I care about any of this?</description>
+    </item>
+    
+  </channel>
+</rss>
